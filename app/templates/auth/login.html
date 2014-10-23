@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Log In</title>
+        <link href="/static/stylesheets/auth.css" rel="stylesheet">
+        <link href="/static/lib/bootstrap/themes/bootstrap-yeti.min.css" rel="stylesheet">
+        <link href="/static/stylesheets/base.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <nav id="navbar" class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sm-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">My Website</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="sm-navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div class="container">
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-danger" role="alert">{{ message }}</div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          <form action="" method="post" role="form" class="form-signin">
+            <h2 class="form-signin-heading center-text-align">Welcome!</h2>
+            <input type="email" id="email" name="email" class="form-control"
+              placeholder="Enter E-mail" value="{{ request.form.email }}"
+              required autofocus>
+            <input type="password" id="password" name="password" class="form-control"
+              placeholder="Enter Password" value="{{ request.form.password }}"
+              required>
+            <button type="submit" class="btn btn-lg btn-block btn-success">Sign in</button>
+          </form>
+        </div>
+
+        <footer id="footer">
+            <hr></hr>
+            <span class="footer-text">&copy; 2014 Cheesecake Labs - <a href="mailto:admin@ckl.io">admin@ckl.io</a></span>
+        </footer>
+
+        <script src='/static/lib/jquery/jquery-1.11.1.min.js'></script>
+    </body>
+</html>
