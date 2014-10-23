@@ -23,24 +23,10 @@ Flask-Skeleton
 7. Sync your database:
 `$ python manage db upgrade`
 
-8. Install [Heroku's Toolbelt](https://devcenter.heroku.com/articles/getting-started-with-python#set-up).
+8. Create an admin user:
+`$ python manage create_admin <email> <password>`
 
-9. Run the app:
-`$ python run.py`
+9. Run your app:
+`$ python run`
 
-## Scraping tool
-1. Install dependencies:
-`$ cd /path/to/repo/scraper && npm install`
-
-2. Run the tool:
-`$ cd /path/to/repo/ && mkdir -p data/json && mkdir -p data/csv && bash batch.sh`
-
-
-flask-skeleton
-==============
-
-$ virtualenv venv
-$ . venv/bin/activate
-$ pip install -r requirements.txt
-$ python manage db upgrade
-$ python manage create_admin foo@bar.com password
+10. Access your admin interface at http://localhost:5000
