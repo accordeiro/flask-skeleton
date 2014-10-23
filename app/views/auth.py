@@ -2,7 +2,7 @@ from app import app
 from app import login_manager
 from app.models.user import User
 from flask import request, redirect, url_for, render_template, flash
-from flask.ext.login import login_user
+from flask.ext.login import login_user, logout_user
 
 @login_manager.user_loader
 def load_user(id):
@@ -23,3 +23,8 @@ def login():
         flash('Username or Password is invalid', 'error')
         return redirect(url_for('login'))
     return redirect(url_for('index'))
+
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+    logout_user()
+    return redirect(request.args.get('next') or url_for('index'))
